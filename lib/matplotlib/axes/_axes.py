@@ -18,6 +18,7 @@ import matplotlib.contour as mcontour
 import matplotlib.category as _  # <-registers a category unit converter
 import matplotlib.dates as _  # <-registers a date unit converter
 import matplotlib.docstring as docstring
+import matplotlib.gridspec as gridspec
 import matplotlib.image as mimage
 import matplotlib.legend as mlegend
 import matplotlib.lines as mlines
@@ -7729,3 +7730,8 @@ class Axes(_AxesBase):
     def triplot(self, *args, **kwargs):
         return mtri.triplot(self, *args, **kwargs)
     triplot.__doc__ = mtri.triplot.__doc__
+
+    def get_subplotspec(self):
+        """ Use a default GridSpec of one row and one column
+        """
+        return gridspec.GridSpec(1, 1)[0]
